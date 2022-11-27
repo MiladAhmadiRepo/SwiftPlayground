@@ -12,12 +12,12 @@ let arrayNameUnmutable = [myName,yourName]
 //arrayNameUnmutable.append("newValue")
 
 
-//todo - you can change a let variable by asgin a refrence of class
+//todo - you can change a let variable by asgin a refrence types
 let oldArray = NSMutableArray(
     array: ["foo","zee"]
 )
-//todo - change a unmutable varibale by asign a refrence of class
+//todo - change a unmutable varibale by asign a refrence types
 oldArray.add("jee")
 var newArray=oldArray
 newArray.add("lee")
-//todo - you can see the oldArray and NewArray are the same 
+//todo - you can see the oldArray and NewArray are the same
