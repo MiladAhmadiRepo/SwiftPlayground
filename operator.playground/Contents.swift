@@ -13,16 +13,16 @@ else{
 }
 
 //---------------------------------
-//todo - unary prefix like: !true which fill our variable with false value
+//((unary prefix)) like: !true which fill our variable with false value
 let foo = !true
-//todo - unary postfix like: name! which make name variable not optional
+//((unary postfix)) like: name! which make name variable not optional
 let name = Optional("Milad")
 type(of: name)
 let unaryPostfixVariable = name!
 type(of: unaryPostfixVariable)
-//todo - binary infix like: +,*,/, or other operator which work on two operand
+//((binary infix)) like: +,*,/, or other operator which work on two operand
 let result = 1 + 2
 //---------------------------------
 let age=20
-//todo - condition experssions
+//condition experssions
 var message = age > 20 ? "you are an adult" : "you are not an adult yet"
