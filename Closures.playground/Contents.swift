@@ -20,7 +20,7 @@ addCustom(05 , 20, ExternalNameFunction:{ (lhs : Int , rhs : Int) -> Int in
         lhs + rhs
     }
 )
-
+
 // you can change trailing item in swift
 // first remove the last item in input arguments
 // as ((trailing closure syntax))
@@ -37,5 +37,15 @@ addCustom(30, 30) {
     $0+$1
 }
 
+// this is an another example of pass a function as a closure to a function
+let varArray=[20,5,18,44]
+varArray.sorted(by: {(
+    lhs : Int , hls : Int) -> Bool in
+    lhs > hls
+})
+
+//the simplest way to pass another function ((function with name <))
+let varArray2=[20,5,18,44]
+varArray.sorted(by: <)
 
 
