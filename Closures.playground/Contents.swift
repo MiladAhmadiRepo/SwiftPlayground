@@ -49,3 +49,15 @@ let varArray2=[20,5,18,44]
 varArray.sorted(by: <)
 
 
+// pass a function as a parameter  to nother function
+func add10(_ value1 : Int) -> Int
+{
+    value1 + 10
+}
+
+func doAddition (sendValue : Int ,passFunction: (Int)-> Int)
+{
+    passFunction(sendValue)
+}
+
+doAddition(sendValue: 15, passFunction: add10(_:))
