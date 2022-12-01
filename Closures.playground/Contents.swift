@@ -60,4 +60,6 @@ func doAddition (sendValue : Int ,passFunction: (Int)-> Int)
     passFunction(sendValue)
 }
 
-doAddition(sendValue: 15, passFunction: add10(_:))
+doAddition(sendValue: 15, passFunction: add10)
+
+
