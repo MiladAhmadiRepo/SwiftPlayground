@@ -59,7 +59,5 @@ func doAddition (sendValue : Int ,passFunction: (Int)-> Int)
 {
     passFunction(sendValue)
 }
-
+//send parameters
 doAddition(sendValue: 15, passFunction: add10)
-
-
