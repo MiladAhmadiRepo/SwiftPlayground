@@ -145,3 +145,30 @@ enum Height {
         self = Height.long
     }
 }
+
+var myHeight=Height.medium
+myHeight.makeLog()
+myHeight
+
+
+//you can call a enum recursively into enum like this
+indirect enum IntOperation{
+    case add(Int,Int)
+    case sub(Int,Int)
+    case freeHand(IntOperation)
+    
+    func calculateResult(of operation:IntOperation?=nil) -> Int{
+        switch operation ?? self {
+        case let .add(lhs, rhs):
+            return lhs + rhs
+        case let .sub(lhs, rhs):
+            return lhs - rhs
+        case .freeHand(_):
+            return calculateResult(of: operation)
+        }
+    }
+}
+let freehand = IntOperation.freeHand(IntOperation.add(2, 8))
+freehand.calculateResult()
+
+
