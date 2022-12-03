@@ -66,3 +66,82 @@ case let.song(artist, songName):
     print("\(artist) - \(songName)")
 }
 
+
+//add function to enum to get value by switch and ((self))
+enum Vehicle{
+    case car (manufacture :String, model :String)
+    case bike (manufacture :String, yearMaid:Int)
+    func getManufacture()->String{
+        switch self {
+            //you can ignore some argument with (( _ ))
+        case let .car(manufacture:  manufacture, _):
+            return manufacture
+        case let .bike(manufacture: manufacture, _):
+            return manufacture
+        }
+    }
+    //you can convert above function to property like this
+    var manufacturer : String{
+        switch self {
+            //you can ignore some argument with (( _ ))
+        case let .car(manufacture:  manufacture, _):
+            return manufacture
+        case let .bike(manufacture: manufacture, _):
+            return manufacture
+        }
+    }
+}
+
+let car=Vehicle.car(manufacture: "Tesla", model: "X")
+let bike=Vehicle.bike(manufacture: "HD", yearMaid: 1989)
+
+car.getManufacture()
+car.manufacturer
+bike.getManufacture()
+bike.manufacturer
+
+//you can use raw data with enum like this
+enum FamilyMember : String{
+    case Father = "dad"
+    case Brother = "bro"
+    case Mother = "mom"
+    case Sister = "sis"
+}
+
+FamilyMember.Brother.rawValue
+FamilyMember.Father.rawValue
+
+// you can use ((case iterable)) in enum
+enum FavoriteEmoji : String , CaseIterable {
+    case blush = "😊"
+    case rocket = "🚀"
+    case fire = "🔥"
+}
+FavoriteEmoji.allCases
+FavoriteEmoji.allCases.map(\.rawValue)
+
+//you can compare raw value with enum raw values without implementation of ((=))
+if let blush = FavoriteEmoji(rawValue: "😊")
+{
+    print("Found the blush emoji")
+    blush
+}else{
+    print("This emoji does not exist")
+}
+ 
+
+if let snow = FavoriteEmoji(rawValue: "❄️")
+{
+    print("Snow exist really ??")
+    snow
+}else{
+    print("As expected , snow doesnot exist in our enum")
+}
+
+//you can use ((mutating function)) in enum
+enum Height {
+    case short ,medium , long
+    mutating func makeLog(){
+        self = Height.long
+    }
+}
