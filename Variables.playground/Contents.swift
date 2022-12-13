@@ -9,7 +9,7 @@ arrayName.append("akbar")
  
 let arrayNameUnmutable = [myName,yourName]
 //you can not change let variables
-//arrayNameUnmutable.append("newValue")
+//arrayNameUnmutable.append("newVal§ue")
 
 
 //you can change a let variable by asgin a refrence types

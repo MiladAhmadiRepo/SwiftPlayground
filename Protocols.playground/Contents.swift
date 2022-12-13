@@ -38,7 +38,7 @@ extension CanJump{
 }
 
 // if there is not any extention for the protocols
-//you ahve to implement the function in chaild class or structure
+//you have to implement the function in child class or structure
 struct Cat : CanJump{
     //you dont need implement ((jumping)) method because it has implemented in extention
     //and you have to implement ((sitting)) method

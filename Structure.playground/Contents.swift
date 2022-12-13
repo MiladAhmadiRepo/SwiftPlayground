@@ -35,8 +35,8 @@ struct Car{
 }
 
 // you cannot change the a mutable function into let varibale
-////let immutableCar = Car(currentSpeed: 10)
-////immutableCar.drive(speed: 20)
+//let immutableCar = Car(currentSpeed: 10)
+//immutableCar.drive(speed: 20)
 var immutableCar = Car(currentSpeed: 10)
 immutableCar.drive(speed: 20)
 
