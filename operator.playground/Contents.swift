@@ -26,3 +26,5 @@ let result = 1 + 2
 let age=20
 //condition experssions
 var message = age > 20 ? "you are an adult" : "you are not an adult yet"
+
+

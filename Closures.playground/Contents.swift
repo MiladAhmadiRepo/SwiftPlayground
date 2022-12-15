@@ -7,7 +7,7 @@ let add : (Int , Int) -> Int = {
 }
 add(20,10)
  
-
+//---------------------------------------------------------------------------
 
 func addCustom(_ lhs : Int ,_ hls : Int,
                 ExternalNameFunction internalNameUsing : (Int ,Int) -> Int
@@ -21,11 +21,13 @@ addCustom(05 , 20, ExternalNameFunction:{ (lhs : Int , rhs : Int) -> Int in
     }
 )
 
+//---------------------------------------------------------------------------
+
 // you can change trailing item in swift
 // first remove the last item in input arguments
 // as ((trailing closure syntax))
 // then remove the externalName also remove the types of passing arguments function and remove the return type of function
-// which makes your closure parameter very easy to read
+// which makes your closure parameter easier to read
 addCustom(20, 10) { lhs, rls in
     lhs+rls
 }
@@ -36,6 +38,8 @@ addCustom(20, 10) { lhs, rls in
 addCustom(30, 30) {
     $0+$1
 }
+
+//---------------------------------------------------------------------------
 
 // this is an another example of pass a function as a closure to a function
 let varArray=[20,5,18,44]
@@ -48,6 +52,7 @@ varArray.sorted(by: {(
 let varArray2=[20,5,18,44]
 varArray.sorted(by: <)
 
+//---------------------------------------------------------------------------
 
 // pass a function as a parameter  to nother function
 func add10(_ value1 : Int) -> Int

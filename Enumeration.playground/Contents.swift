@@ -27,6 +27,7 @@ default:
 //    "this is a fox"
 }
 
+//-------------------------------------------------------------
 
 enum Shortcuts{
     case fileAndFolder(path: URL,name :String)
@@ -66,12 +67,14 @@ case let.song(artist, songName):
     print("\(artist) - \(songName)")
 }
 
+//-------------------------------------------------------------
 
 //add function to enum to get value by switch and ((self))
 enum Vehicle{
     case car (manufacture :String, model :String)
     case bike (manufacture :String, yearMaid:Int)
-    func getManufacture()->String{
+    func getManufacture() -> String
+    {
         switch self {
             //you can ignore some argument with (( _ ))
         case let .car(manufacture:  manufacture, _):
@@ -100,6 +103,9 @@ car.manufacturer
 bike.getManufacture()
 bike.manufacturer
 
+//-------------------------------------------------------------
+
+
 //you can use raw data with enum like this
 enum FamilyMember : String{
     case Father = "dad"
@@ -120,6 +126,8 @@ enum FavoriteEmoji : String , CaseIterable {
 FavoriteEmoji.allCases
 FavoriteEmoji.allCases.map(\.rawValue)
 
+//-------------------------------------------------------------
+
 //you can compare raw value with enum raw values without implementation of ((=))
 if let blush = FavoriteEmoji(rawValue: "😊")
 {
@@ -138,6 +146,8 @@ if let snow = FavoriteEmoji(rawValue: "❄️")
     print("As expected , snow doesnot exist in our enum")
 }
 
+//-------------------------------------------------------------
+
 //you can use ((mutating function)) in enum
 enum Height {
     case short ,medium , long
@@ -150,14 +160,16 @@ var myHeight=Height.medium
 myHeight.makeLog()
 myHeight
 
+//-------------------------------------------------------------
 
-//you can call a enum recursively into enum like this
+//you can call a enum recursively into enum like this with ((indirect)) keyword
 indirect enum IntOperation{
     case add(Int,Int)
     case sub(Int,Int)
     case freeHand(IntOperation)
     
-    func calculateResult(of operation:IntOperation?=nil) -> Int{
+    func calculateResult(of operation : IntOperation? = nil) -> Int
+    {
         switch operation ?? self {
         case let .add(lhs, rhs):
             return lhs + rhs
@@ -171,4 +183,5 @@ indirect enum IntOperation{
 let freehand = IntOperation.freeHand(IntOperation.add(2, 8))
 freehand.calculateResult()
 
+//-------------------------------------------------------------
 

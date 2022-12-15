@@ -9,10 +9,11 @@ arrayName.append("akbar")
  
 let arrayNameUnmutable = [myName,yourName]
 //you can not change let variables
-//arrayNameUnmutable.append("newVal§ue")
+//arrayNameUnmutable.append("newValue")
 
+//-----------------------------------------------------------
 
-//you can change a let variable by asgin a refrence types
+//you can change a let variable by asgin a refrence types like ((classes))
 let oldArray = NSMutableArray(
     array: ["foo","zee"]
 )

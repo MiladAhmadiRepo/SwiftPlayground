@@ -18,9 +18,12 @@ class Person {
 let foo = Person(name: "foo", age: 20)
 foo.age
 // you can see we asign new value to let variable without any error ((let foo))
-// why? beacusse all classes in Swift are ((in refrence types)) and we can change them iternally
+// why? beacusse all classes in Swift are ((refrence types)) and we can change them iternally
 foo.increaseAge()
 foo.age
+
+//---------------------------------------------------------------------------
+
 
 // you can check refrece type of classes by fill a variable with a class variable
 let bar = foo
@@ -36,6 +39,7 @@ if(foo === bar){
 else{
     print("foo and bar don't point to the same memory")}
 
+//---------------------------------------------------------------------------
 
 //you can have private perporties with ((private)) key word
 class Person2 {
@@ -57,6 +61,7 @@ person2.age
 //you don't access to change a value of private varibale in class externally
 //person2.age+=1
 
+//---------------------------------------------------------------------------
 
 class Tesla{
     let manufacturer = "Tesla"
@@ -88,6 +93,8 @@ class Tesla{
     
 }
 
+//---------------------------------------------------------------------------
+
 class TeslaModelY : Tesla{
     //for ((init )) we have to override ((init)) in super class
     override init(model: String, year: Int) {
@@ -101,6 +108,7 @@ class TeslaModelY : Tesla{
     
 }
 
+//---------------------------------------------------------------------------
 
 //classes are ((refrences type))
 let fooBar = Person2(age: 20)
@@ -112,6 +120,7 @@ func doSomeThing(with person : Person2)
 doSomeThing(with : fooBar)
 fooBar.age
 
+//---------------------------------------------------------------------------
 
 class MyClass{
     init (){

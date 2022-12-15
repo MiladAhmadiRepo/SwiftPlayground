@@ -13,6 +13,8 @@ struct CommodoreComputer{
 
 let c4m=CommodoreComputer(name: "c4m")
 
+//---------------------------------------------------------------------------
+
 // create a function on a structure
 struct FullName{
     let firstName: String
@@ -39,6 +41,8 @@ struct Car{
 //immutableCar.drive(speed: 20)
 var immutableCar = Car(currentSpeed: 10)
 immutableCar.drive(speed: 20)
+
+//---------------------------------------------------------------------------
 
 //you can copy a structure just by passing into a varibale
 let anotherCar=immutableCar

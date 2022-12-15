@@ -25,6 +25,8 @@ dog.breathe()
 let person = Person()
 person.breathe()
 
+//---------------------------------------------------------------------------
+
 //you can add implementation to a interface function by ((extention))
 protocol CanJump{
     func jumping()
@@ -40,7 +42,7 @@ extension CanJump{
 // if there is not any extention for the protocols
 //you have to implement the function in child class or structure
 struct Cat : CanJump{
-    //you dont need implement ((jumping)) method because it has implemented in extention
+    //you dont need implement ((jumping)) method because it has implemented in extention ((CanJump))
     //and you have to implement ((sitting)) method
     func sitting() {
         print(" sitting ...")
@@ -49,6 +51,7 @@ struct Cat : CanJump{
 let wiskers = Cat()
 wiskers.jumping()
 
+//---------------------------------------------------------------------------
 
 //you can add properties to protocols like this
 protocol HasName{
@@ -56,7 +59,7 @@ protocol HasName{
     var name : String { get }
     //you can not write variable with ((let)) in protocols
     //let familyName : String { get }
-    //in the right way you can use ((var)) with ((get))
+    //this is the right way to use ((let)) to set ((get))
     var familyName : String { get }
     var age : Int { get set }
 }
@@ -74,6 +77,7 @@ woof.name
 woof.age
 //woof.age += 1
 
+//---------------------------------------------------------------------------
 
 //we add properties to protocols to use in extention and child classes
 protocol Vehicle{
@@ -99,6 +103,8 @@ bike.speed
 bike.increaseSpeed(by: 10)
 bike.speed
 
+//---------------------------------------------------------------------------
+
 //to comform a object is a protocol you can use ((is)) key word
 func describe (obj:Any)
 {
@@ -118,6 +124,7 @@ struct Worm{
 }
 describe(obj: Worm())
 
+//---------------------------------------------------------------------------
 
 //you can use the ((as?)) key word to tell to the Swift the type of object
 

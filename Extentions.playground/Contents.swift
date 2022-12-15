@@ -11,7 +11,8 @@ extension Int {
 let two = 2
 //two+2
 two.plusTwo()
-//---------------------------------------------------
+
+//---------------------------------------------------------------------------
 
 //when ever you create a struct there is a default initializer vs constructor internally
 //on the other hand if you add a initializer ((init)) then it would be replased with default initilizer
@@ -21,6 +22,7 @@ struct Person{
 }
 //this is a default constructor
 //var person= Person(name: <#T##String#>, lastName: <#T##String#>)
+
 struct DefaultPerson{
     var name :String
     var lastName : String
@@ -34,7 +36,7 @@ struct DefaultPerson{
 // there is just replaced contructor
 //let defaultPerson = DefaultPerson(fullname: <#T##String#>)
 
-//if you want to have default contsructor and new contructor
+//if you want to have default contsructor and new contructor in the same time
 //you can add custom contructor into the ((extention))
 
 extension Person{
@@ -51,7 +53,8 @@ extension Person{
 let person = Person(fullname: "Foo Bar")
 person.name
 person.lastName
-//---------------------------------------------------
+
+//---------------------------------------------------------------------------
 
 //you can extend ((protocols)) as well as
 protocol GoesVroom{
@@ -82,8 +85,7 @@ extension Car : GoesVroom {
 let modelX = Car(manufacture: "Tesla", model: "X")
 modelX.goVroom()
 
-
-//---------------------------------------------------
+//---------------------------------------------------------------------------
 
 //how to use the extentions in class : you can add convenience initilazer in extention
 class MyDouble{
@@ -99,12 +101,12 @@ extension MyDouble{
         self.init(value: 0)
     }
 }
-//---------------------------------------------------
 
 let myDouble = MyDouble()
 //you see, I didn't intialize a value for init constructor
 myDouble.value
 
+//---------------------------------------------------------------------------
 
 //you can extend protocols with extentions
 extension GoesVroom{
