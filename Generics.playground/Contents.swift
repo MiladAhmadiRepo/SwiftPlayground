@@ -154,7 +154,7 @@ extension presentableAsView where ViewType == Button{
         print("this is a button")
     }
 }
-let buttom : MyButton()
+let buttom = MyButton()
 //you can see we create an instance of MyButton and we access to  ((doSomeThingWithButton)) function
 buttom.doSomeThingWithButton()
 
@@ -173,10 +173,10 @@ let table = MyTable()
 //---------------------------------------------------------------
 
 //there si another example of generic extention on array in swift
-extention [Int]
+extension [Int]
 {
     func average() -> Double {
-        return Double(self.reduce(0,+)) / Double(self.count())
+        return Double(self.reduce(0,+)) / Double(self.count)
     }
 }
 
