@@ -68,7 +68,7 @@ class Tesla{
     let model :String
     let year : Int
     
-    //designated initializer could be implemet multi time with multi shape
+    //designated initializer could be implemet multi time in multi shape
     init() {
         model="x"
         year=2023

@@ -20,7 +20,7 @@ func performNumericGeneric <N: Numeric>(_ op: (N , N) -> N, on lhs : N, other rh
 {
     op(lhs , rhs)
 }
-//most important thing is the above function use ((Numeric)) which is a protocol and implemented in Double and Int as well
+//most important thing is the above function use ((Numeric)) which is a protocol and implemented in Double as well as Int
 let NumInt = performNumericGeneric(+, on: 2, other: 5)
 // ((NumInt)) is a int value
 let NumDouble = performNumericGeneric(+, on: 2.2, other: 5.0)
@@ -99,7 +99,7 @@ extension View{
     }
 }
 
-//now we create a structure which inherited view protocol
+//now we create a structure which have inherited the view protocol
 struct Button :View{
     //empty
 }
@@ -111,11 +111,12 @@ struct Table : View{
 //we create a new protocol
 protocol presentableAsView {
     //we tell to swift this protocol use generic type by ((associatetype))
+    //ViewType could be Button or Table
     associatedtype ViewType :View
     
-    //now we create a functio to produce a TypeView ((if the type would be a buttom ))
-    //this function produce a button ((if the type would be a table ))
-    //this function produce a table
+    //now we're creating a function to produce a TypeView
+    //((if the type would be a buttom ))  this function produce a button
+    //((if the type would be a table ))   this function produce a table
     func produceView () -> ViewType
    
     func configure( superView : View , thisView : ViewType )
@@ -172,7 +173,7 @@ let table = MyTable()
 
 //---------------------------------------------------------------
 
-//there si another example of generic extention on array in swift
+//there is another example of generic extention on array in swift
 extension [Int]
 {
     func average() -> Double {

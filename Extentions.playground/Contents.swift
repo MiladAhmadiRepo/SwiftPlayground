@@ -36,7 +36,7 @@ struct DefaultPerson{
 // there is just replaced contructor
 //let defaultPerson = DefaultPerson(fullname: <#T##String#>)
 
-//if you want to have default contsructor and new contructor in the same time
+//if you want to have default contsructor and new contructor at the same time
 //you can add custom contructor into the ((extention))
 
 extension Person{
@@ -56,7 +56,7 @@ person.lastName
 
 //---------------------------------------------------------------------------
 
-//you can extend ((protocols)) as well as
+//you can extend ((protocols)) as well
 protocol GoesVroom{
     var vroomValue : String { get }
     func goVroom () -> String
@@ -75,7 +75,7 @@ struct Car {
     let model : String
 }
 
-//now we extend the Car class with GoesVroom protocol implementation which it has to implement the vroomValue as well as
+//now we extend the Car class with GoesVroom protocol implementation which has to implement the vroomValue as well as ((goVroom))
 extension Car : GoesVroom {
     var vroomValue: String{
         "manufacture \(self.manufacture) model \(self.model)"

@@ -36,7 +36,7 @@ enum Shortcuts{
 }
 
 let wwwApple=Shortcuts.wwwUrl(path: URL(string: "www.apple.com")!)
-//you cannot compare a wwwApple with a url you pass to enum becacuse you have to implement == in enum
+//you cannot compare a wwwApple with a url you pass to enum becacuse you have to implement ((==)) in enum
 
 switch wwwApple{
 case .fileAndFolder(path: let path, name: let name):

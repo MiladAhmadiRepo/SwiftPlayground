@@ -40,7 +40,7 @@ extension CanJump{
 }
 
 // if there is not any extention for the protocols
-//you have to implement the function in child class or structure
+//you have to implement the functions in the child classes or structures
 struct Cat : CanJump{
     //you dont need implement ((jumping)) method because it has implemented in extention ((CanJump))
     //and you have to implement ((sitting)) method
@@ -59,7 +59,7 @@ protocol HasName{
     var name : String { get }
     //you can not write variable with ((let)) in protocols
     //let familyName : String { get }
-    //this is the right way to use ((let)) to set ((get))
+    //this is the right way to use ((let)) to implement the ((get)) variable
     var familyName : String { get }
     var age : Int { get set }
 }
