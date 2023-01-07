@@ -165,3 +165,97 @@ catch Dog.RunningError.cannotRunIsInjured,Dog.BarkingError.cannotBarkIsSleep
 catch{
     print("there is another error")
 }
+
+//---------------------------------------------------------------------
+//re throws
+//we talking about a function internally call another function which can also throw and it is
+//as input closure in parent function
+func fullName(firstName : String? , lastName : String?
+              , calculator : (String? , String?) throws -> String?
+) rethrows -> String? {
+  try  calculator(firstName , lastName)
+}
+
+enum NameErrors : Error {
+    case InvalidFirstName
+    case InvalidLastName
+}
+
+//create a closure to concat two string or return throws
+func + (firstName : String? , lastName : String?) throws -> String?
+{
+    guard let firstName , !firstName.isEmpty else
+    {
+        throw NameErrors.InvalidFirstName
+    }
+    guard let lastName , !lastName.isEmpty else{
+        throw NameErrors.InvalidLastName
+    }
+    return "\(firstName) \(lastName)"
+}
+
+ 
+do{
+    //let fooBar = try fullName(firstName: "Foo", lastName: "Bar", calculator: +)
+    //let fooBar = try fullName(firstName: nil, lastName: nil, calculator: +)
+    let fooBar = try fullName(firstName: "Foo", lastName: nil, calculator: +)
+}catch NameErrors.InvalidFirstName{
+    print("Firstname is nil")
+}catch NameErrors.InvalidLastName {
+    print("Lastname is nil ")
+}catch let err{
+    print("some another error ocured \(err)")
+}
+
+//---------------------------------------------------------------------
+//you can use ((result<typeOfValue , errorValue>)) instead of throws which make more sence
+//to understad and readable your functions
+
+enum IntergerErrors : Error {
+    case noPreviousPositiveIntergerBefore(thisValue : Int)
+    case zeroNumberBefore(thisValue : Int)
+}
+
+func getPreviousPositiveInteger( externalValue internalValue :Int )
+    -> Result<Int ,IntergerErrors>
+{
+    
+    if internalValue == 0 {
+        return Result.failure(
+            IntergerErrors.zeroNumberBefore(thisValue: internalValue)
+        )
+    }
+    guard internalValue > 0  else {
+        return Result.failure(
+            IntergerErrors.noPreviousPositiveIntergerBefore(thisValue: internalValue)
+        )
+    }
+    return Result.success(internalValue - 1)
+}
+//the prevoius function we use ((Result)) instead of ((throws))
+//to make clear return value from a function
+//if there is an error the enum value returns
+//otherwise the success section returns ((value -1))
+
+//now we use switch to call above function
+func performGet (fromValue value : Int){
+    //the ((Result)) is an enum and you can switched on it
+    switch getPreviousPositiveInteger(externalValue: value){
+        case let .success(previousValue) :
+            print("previous value is \(previousValue)")
+        
+        case let .failure(error):
+        switch error {
+            //the error is ((IntergerErrors)) is an enum which can be switch on that
+            case let .noPreviousPositiveIntergerBefore(thisValue):
+                print("no posotive integer value pervious \(thisValue)")
+            case let .zeroNumberBefore(thisValue) :
+                print("zero is not positive value \(thisValue)")
+        }
+    }
+}
+
+performGet(fromValue: -1)
+//performGet(fromValue: 0)
+//performGet(fromValue: 2)
+//---------------------------------------------------------------------
