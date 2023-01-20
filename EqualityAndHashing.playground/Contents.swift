@@ -110,3 +110,63 @@ if cat1 == cat2 {
 //you can remove extention and find out the code still work
 //because you implement == in struct
 //-------------------------------------------------------------
+struct House : Hashable {
+    let number : Int
+    let numberOfBedRooms : Int
+}
+
+let house1 = House(number: 123, numberOfBedRooms: 2)
+house1.hashValue
+let house2 = House(number: 123, numberOfBedRooms: 3)
+house2.hashValue
+
+let houses = Set([house1 , house2])
+houses.count
+
+//you can set the whitch one of property would be hashing
+struct NumberedHouse : Hashable {
+    let number : Int
+    let numberOfBedRooms : Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(number)
+    }
+    
+    static func == (rhs : Self , lhs : Self) -> Bool
+    {
+        rhs.number == lhs.number
+    }
+}
+
+let house3 = NumberedHouse(number: 123, numberOfBedRooms: 2)
+let house4 = NumberedHouse(number: 123, numberOfBedRooms: 3)
+
+let houses2 = Set([house3,house4])
+// you can see there are just one element in set
+houses2.count
+house3.hashValue
+house4.hashValue
+ 
+//-------------------------------------------------------------
+//let's check equality with hashable and enum
+enum HouseType : Hashable {
+    case BigHouse(NumberedHouse)
+    case SmallHouse(NumberedHouse)
+}
+
+let bigHouse1 = HouseType.BigHouse(NumberedHouse(
+number: 1, numberOfBedRooms: 5
+))
+
+let bigHouse2 = HouseType.BigHouse(NumberedHouse(
+number: 1, numberOfBedRooms: 5
+))
+
+let smallHouse1 = HouseType.SmallHouse(NumberedHouse(
+number: 1, numberOfBedRooms: 5
+))
+
+let allHouses : Set<HouseType> = [bigHouse1,bigHouse2,smallHouse1]
+allHouses.count
+
+ 
